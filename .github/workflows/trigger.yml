@@ -1,0 +1,16 @@
+name: Run when triggered from Repo1
+
+on:
+  repository_dispatch:
+    types: [run-tests]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run command
+        run: echo "Workflow triggered from Repo1"
